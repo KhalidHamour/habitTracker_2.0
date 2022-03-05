@@ -1,0 +1,200 @@
+body {
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: rgba(32, 153, 223, 0.822);
+}
+
+#root{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+
+  #add-btn{
+   position: relative;
+   width: 20%;
+   height: min-content;
+   margin-bottom: 10px;
+   
+   background-color: rgba(143, 247, 82, 0.671);
+   border-radius: 10px;
+   font-weight: bold;
+  }
+}
+
+.habit-list {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0 10px;
+  height: min-content;
+  justify-content: center;
+
+  background-color: #464646bd;
+  padding: 0 0 10px 0;
+  border-radius: 10px;
+
+  .habit-tab {
+    display: grid;
+    position: relative;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+    grid-template-rows: 50px 50px;
+    grid-template-areas:
+      "ribbon title menu"
+      "ribbon progress menu";
+    width: 85%;
+    margin: 10px auto 2px auto;
+
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    border: black solid 2px;
+
+    .progress-bar {
+      position: absolute;
+      width: 100%;
+      height: 10px;
+      grid-area: progress;
+      top: 50%;
+      left: 10%;
+      
+      background-color: #8b8b8b;
+      border-radius: 5px;
+      border: black solid 2px;
+    }
+
+    .progress {
+      width: 0%;
+      height: 100%;
+      z-index: 2;
+    
+      border-radius: 5px;
+    }
+
+    .ribbon {
+      position: relative;
+      grid-area: ribbon;
+      left: 0;
+      
+      border-radius: 13px;
+      border: black solid 3px;
+    }
+
+    h1 {
+      position: relative;
+      grid-area: title;
+      justify-self: center;
+    }
+
+    img {
+      grid-area: menu;
+      justify-self: center;
+      align-self: center;
+
+      cursor: pointer;
+    }
+  }
+
+  .habit-calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    width: 75%;
+    margin: auto;
+    padding: 0px 10px;
+    
+    flex-wrap: wrap;
+    
+    background-color: #6d6d6d;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  .button {
+    position: relative;
+    width: 95%;
+    height: 4vh;
+    
+
+    background-color: rgba(247, 82, 82, 0.671);
+    font-weight: bold;
+    border: black solid 2px;
+    border-radius: 5px;
+    
+    cursor: pointer;
+  }
+}
+
+.calendar-day {
+  width: 95%;
+  height: 4vh;
+  max-width: 100px;
+  max-height: 100px;
+  margin: 5px;
+  
+  background-color: white;
+  border: black solid 2px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  
+  cursor: pointer;
+}
+
+.add-habit-modal {
+  display: none;
+  width: 30vw;
+  height: 10vh;
+  position: absolute;
+  left: 30vw;
+  top: 40vh;
+  border-radius: 5%;
+  z-index: 20;
+
+  background-color: white;
+  
+  #new-habit-input{
+    width: 90%;
+    height: 20px;
+    
+    border: black solid 3px;
+  }
+
+  #save-btn{
+    position: relative;
+    width: 80px;
+    height: 20px;
+
+    border-radius: 10px;
+    background-color: rgba(143, 247, 82, 0.671);
+    font-weight: bold;
+  }
+  
+  #cancel-btn{
+    position: relative;
+    width: 80px;
+    height: 20px;
+
+    border-radius: 10px;
+    background-color: rgba(247, 82, 82, 0.671);
+    font-weight: bold;
+  }
+
+}
+
+.modal-backdrop {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+
+  background-color: rgba(0, 0, 0, 0.8);
+}
